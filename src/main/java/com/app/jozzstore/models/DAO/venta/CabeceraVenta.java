@@ -54,10 +54,4 @@ public class CabeceraVenta implements Serializable {
     @Column(name = "fechamodificacion", nullable = false, insertable = false, columnDefinition = "TIMESTAMP")
     @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
     private Date fechaModificacion;
-
-    // Relaciones Externas
-
-    @OneToMany(mappedBy = "cabeceraVenta", targetEntity = DetalleVenta.class, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-    @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
-    private List<DetalleVenta> detalleVentas;
 }

@@ -38,9 +38,4 @@ public class Rol implements Serializable {
     @Column(name = "fechamodificacion", nullable = false, insertable = false, columnDefinition = "TIMESTAMP")
     @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
     private Date fechaModificacion;
-
-    // Relaciones Externas
-
-    @OneToMany(mappedBy = "rol", fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = UsuarioRol.class)
-    private List<UsuarioRol> usuarioRoles;
 }

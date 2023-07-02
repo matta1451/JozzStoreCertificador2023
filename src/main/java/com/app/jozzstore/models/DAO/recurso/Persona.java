@@ -95,10 +95,4 @@ public class Persona implements Serializable {
     @Column(name = "fechamodificacion", nullable = false, insertable = false, columnDefinition = "TIMESTAMP")
     @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
     private Date fechaModificacion;
-
-    // Relaciones externas
-
-    @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = Usuario.class)
-    private List<Usuario> usuarios;
-
 }

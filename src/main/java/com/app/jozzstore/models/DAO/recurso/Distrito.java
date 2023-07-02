@@ -44,12 +44,4 @@ public class Distrito implements Serializable {
     @Column(name = "fechamodificacion", nullable = false, insertable = false, columnDefinition = "TIMESTAMP")
     @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
     private Date fechaModificacion;
-
-    // Relaciones externas
-
-    @OneToMany(mappedBy = "distrito", targetEntity = Persona.class, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-    private List<Persona> personas;
-
-    @OneToMany(mappedBy = "distrito", targetEntity = Delivery.class, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-    private List<Delivery> deliveries;
 }

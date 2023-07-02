@@ -57,10 +57,4 @@ public class Proveedor implements Serializable {
     @Column(name = "fechamodificacion", nullable = false, insertable = false, columnDefinition = "TIMESTAMP")
     @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
     private Date fechaModificacion;
-
-    // Relaciones Externas
-
-    @OneToMany(mappedBy = "proveedor", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = CabeceraCompra.class)
-    private List<CabeceraCompra> cabeceraCompras;
-
 }

@@ -38,10 +38,4 @@ public class Delivery implements Serializable {
     @Column(name = "referencia", length = 100)
     @Size(max = 100, message = MensajeriaValidacionUtil.LONGITUD_MAXIMA_SUPERADA)
     private String referencia;
-
-    // Relaciones Externas
-
-    @OneToMany(mappedBy = "delivery", fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = CabeceraVenta.class)
-    @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
-    private List<CabeceraVenta> cabeceraVentas;
 }

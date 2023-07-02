@@ -56,12 +56,4 @@ public class Usuario implements Serializable {
     @Column(name = "fechamodificacion", nullable = false, insertable = false, columnDefinition = "TIMESTAMP")
     @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
     private Date fechaModificacion;
-
-    // Relaciones externas
-
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = UsuarioRol.class)
-    private List<UsuarioRol> usuarioRoles;
-
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = CabeceraVenta.class)
-    private List<CabeceraVenta> cabeceraVentas;
 }

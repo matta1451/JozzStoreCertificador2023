@@ -44,8 +44,4 @@ public class Categoria implements Serializable {
     @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
     private Date fechaModificacion;
 
-    // Relaciones Externas
-
-    @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY, targetEntity = Producto.class, cascade = CascadeType.MERGE)
-    private List<Producto> productos;
 }

@@ -44,29 +44,4 @@ public class EstadoTransaccion implements Serializable {
     @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
     private Date fechaModificacion;
 
-    // Relaciones externas
-
-    @OneToMany(mappedBy = "estadoTransaccion", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = Distrito.class)
-    private List<Distrito> distritos;
-
-    @OneToMany(mappedBy = "estadoTransaccion", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = TipoPago.class)
-    private List<TipoPago> tipoPagos;
-
-    @OneToMany(mappedBy = "estadoTransaccion", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = Proveedor.class)
-    private List<Proveedor> proveedores;
-
-    @OneToMany(mappedBy = "estadoTransaccion", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = Usuario.class)
-    private List<Usuario> usuarios;
-
-    @OneToMany(mappedBy = "estadoTransaccion", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = Categoria.class)
-    private List<Categoria> categorias;
-
-    @OneToMany(mappedBy = "estadoTransaccion", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = Producto.class)
-    private List<Producto> productos;
-
-    @OneToMany(mappedBy = "estadoTransaccion", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = CabeceraCompra.class)
-    private List<CabeceraCompra> cabeceraCompras;
-
-    @OneToMany(mappedBy = "estadoTransaccion", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = CabeceraVenta.class)
-    private List<CabeceraVenta> cabeceraVentas;
 }

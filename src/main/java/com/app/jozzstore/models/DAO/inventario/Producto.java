@@ -4,6 +4,7 @@ import com.app.jozzstore.models.DAO.compra.DetalleCompra;
 import com.app.jozzstore.models.DAO.recurso.EstadoTransaccion;
 import com.app.jozzstore.models.DAO.venta.DetalleVenta;
 import com.app.jozzstore.utils.MensajeriaValidacionUtil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
@@ -30,7 +31,7 @@ public class Producto implements Serializable {
     @Column(name = "idproducto")
     private Long idProducto;
 
-    @ManyToOne(targetEntity = Categoria.class)
+    @ManyToOne(targetEntity = Categoria.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "idcategoria", nullable = false)
     @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
     private Categoria categoria;
@@ -62,16 +63,5 @@ public class Producto implements Serializable {
 
     @Lob
     @Column(name = "imagen", nullable = false, columnDefinition = "LONGBLOB")
-    @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
-    private Byte[] imagen;
-
-    // Relaciones Externas
-
-    @OneToMany(mappedBy = "producto", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = DetalleCompra.class)
-    @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
-    private List<DetalleCompra> detalleCompras;
-
-    @OneToMany(mappedBy = "producto", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = DetalleVenta.class)
-    @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
-    private List<DetalleVenta> detalleVentas;
+    private byte[] imagen;
 }

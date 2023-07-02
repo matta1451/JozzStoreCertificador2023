@@ -45,12 +45,4 @@ public class TipoPago implements Serializable {
     @Column(name = "fechamodificacion", nullable = false, insertable = false, columnDefinition = "TIMESTAMP")
     @NotNull(message = MensajeriaValidacionUtil.CAMPO_VACIO)
     private Date fechaModificacion;
-
-    // Relaciones Externas
-
-    @OneToMany(mappedBy = "tipoPago", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = CabeceraCompra.class)
-    private List<CabeceraCompra> cabeceraCompras;
-
-    @OneToMany(mappedBy = "tipoPago", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, targetEntity = CabeceraVenta.class)
-    private List<CabeceraVenta> cabeceraVentas;
 }
